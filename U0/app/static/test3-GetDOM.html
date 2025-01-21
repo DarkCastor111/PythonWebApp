@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>       
+        <style>
+            .par {
+                background-color:#000000;
+                color:#ffffff;
+            }           
+            .impar {
+               background-color:#ffffff;
+               color:#000000;
+            }           
+            div {
+                padding-left: 15px;
+            }
+        </style>   
+		<script>
+			function processBtn1() {
+			alert(document.getElementById("t1_2").outerHTML);
+			}
+			
+			function processBtn2() {
+			if (document.getElementById("no_valid")) {
+				alert(document.getElementById("no_valid").outerHTML);
+			}
+			else {
+				alert("Nombre no valido");
+			}
+			}
+			
+			function processBtn3() {
+			element = document.getElementById("contenedor");
+			alert(element.outerHTML);
+			}
+			
+			function processBtn4() {
+			elementsList=document.getElementsByName("t8");
+				for (i=0 ; i<elementsList.length ; i++) {
+				alert("Element id : " + elementsList[i].id + "\n" + elementsList[i].outerHTML);
+				}
+			}
+			
+			function processBtn5() {
+			elementsList=document.getElementsByName("t7");
+				for (i=0 ; i<elementsList.length ; i++) {
+				alert("Element id : " + elementsList.item(i).id + "\n" + elementsList.item(i).outerHTML);
+				}
+			}
+			
+			function processBtn6() {
+			elementsList=document.getElementsByName("no_valido");
+				if (elementsList.length == 0) {
+					alert("Nombre no valido");
+				}
+			}
+			
+			function processBtn7(input) {
+			headsList=document.getElementsByTagName(input);
+				for (i=0 ; i<headsList.length ; i++) {
+				alert("Element id : " + headsList.item(i).id + "\n" + headsList.item(i).outerHTML);
+				}
+			}
+			
+			function processBtn9() {
+			classList=document.getElementsByClassName("impar");
+				for (i=0 ; i<classList.length ; i++) {
+				alert("Element id : " + classList.item(i).id + "\n" + classList.item(i).outerHTML);
+				}
+			}
+			
+		</script>
+    </head>
+    <body>       
+        Ejemplo de navegaci&oacute;n por el &aacute;rbol DOM:   
+        <div id="contenedor" style="background-color:#666666;color:blue">
+            <div id="contenedor" class="impar">
+                <div name="t1" id="t1_1">Texto 1.1</div>
+                <div name="t1" id="t1_2">Texto 1.2</div>
+                <div name="t1" id="t1_3">Texto 1.3</div>
+            </div>
+            <div class="par" name="t2">Texto 2</div>
+            <div class="impar" name="t3">Texto 3</div>
+            <div class="par" name="t4">Texto 4</div>
+            <div class="impar" name="t5">Texto 5</div>
+            <div class="par" name="t6">Texto 6</div>
+            <div class="impar" name="t7">Texto 7</div>
+            <div class="par" id="contenedor" name="t8">
+                Texto 8
+                <div id="contenedor">
+                    <div name="t8" id="t8_1">Texto 8.1</div>
+                    <div name="t8" id="t8_2">Texto 8.2</div>
+                    <div name="t8" id="t8_3">Texto 8.3</div>
+                </div>
+            </div>
+        </div>   
+		<div id="botonera">
+			<input id="btn1" name="btn1" type="button" value="Click 1" onClick="processBtn1()"></input>
+			<input id="btn2" name="btn2" type="button" value="Click 2" onClick="processBtn2()"></input>
+			<input id="btn3" name="btn3" type="button" value="Click 3" onClick="processBtn3()"></input>
+			<input id="btn4" name="btn4" type="button" value="Click 4" onClick="processBtn4()"></input>
+			<input id="btn5" name="btn5" type="button" value="Click 5" onClick="processBtn5()"></input>
+			<input id="btn6" name="btn6" type="button" value="Click 6" onClick="processBtn6()"></input>
+			<input id="btn7" name="btn7" type="button" value="Click 7" onClick="processBtn7('head')"></input>
+			<input id="btn8" name="btn8" type="button" value="Click 8" onClick="processBtn7('div')"></input>
+			<input id="btn9" name="btn9" type="button" value="Click 9" onClick="processBtn9()"></input>
+		</div>
+    </body>
+</html>

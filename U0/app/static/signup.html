@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <link href="static/css/my-socnet-style.css" rel="stylesheet" type="text/css"/>
+        <title>
+            Sign Up - SocNet
+        </title>
+		<script>
+		
+		function displayValue(idElement) {
+			element = document.getElementById(idElement);
+			if (element) {
+				alert ("Value de element " + element.name + " : " + element.value);
+			} else {
+				alert ("No element " + idElement + " found");
+			}
+		}
+		
+		function displayMultipleValues(idElement) {
+			element = document.getElementById(idElement);
+			alertString="";
+			if (element) {
+				listSize = element.options.length;	
+				for (var i=0; i<listSize; i++) {
+					opt=element.options[i];
+					if (opt.selected) {
+						alertString += "Element selected : " + opt.value + "\n";
+					}
+				}
+				alert (alertString);
+			} else {
+				alert ("No element " + idElement + " found");
+			}
+		}
+		
+		function controlSelected(idElement) {
+			element = document.getElementById(idElement);
+			numberSelected=0;
+			if (element) {
+				listSize = element.options.length;
+				for (var i=0; i<listSize; i++) {
+					opt=element.options[i];
+					if (opt.selected) {
+						numberSelected ++;
+					}
+				}
+				if (numberSelected != 2) {
+				alert("Error : number selected = " + numberSelected);
+				}
+			}
+		}
+		</script>
+    </head>
+    <body">
+        <div id="container">
+             <a href="/">
+                SocNet
+            </a>
+            |
+            <a href="login">
+                Log In
+            </a>
+            <h1>
+                Sign Up
+            </h1>
+            <form action="signup" method="post" name="signup">
+                <label for="nickname">
+                        Nickname
+                </label>
+				<div class="inputs">
+                    <input id="nickname" maxlength="64" name="nickname" placeholder="Nickname" size="80" type="text" value="" onkeyup="displayValue(this.id)"/>
+                </div>
+                 <label for="email">
+                        Email
+                </label>
+				<div class="inputs">
+                    <input id="email" name="email" placeholder="Email" size="80" type="text" value=""/>
+                </div>
+                <label for="passwd">
+                        Password
+                </label>
+				<div class="inputs">
+                    <input id="passwd" name="passwd" placeholder="Password" size="80" type="password" value=""/>
+                </div>
+                <label for="confirm">
+                        Repeat Password
+                </label>
+				<div class="inputs">
+                    <input id="confirm" name="confirm" placeholder="Repeat Password" size="80" type="password" value=""/>
+                </div>
+				
+                <label for="radiotest">
+                        Gender
+                </label>
+				<div class="inputs">
+					<input id="radiotest1" name="radiotest" type="radio" value="Male" checked onchange="displayValue('radiotest1')">Male</input>
+					<input id="radiotest2" name="radiotest" type="radio" value="Female"  onchange="displayValue('radiotest2')">Female</input>
+					<input id="radiotest3" name="radiotest" type="radio" value="Oth"  onchange="displayValue('radiotest3')">Oth</input>
+				</div>
+				
+                <label for="selecttest">
+                        Country
+                </label>
+				<div class="inputs">
+					<select name="selecttest" id="selecttest" multiple onchange="controlSelected('selecttest')">
+					  <option value="-" selected></option>
+					  <option value="France">FRANCE</option>
+					  <option value="Espagne">ESPAGNE</option>
+					  <option value="Other">OTH</option>
+					</select>					
+				</div>
+				
+				
+                <div class="inputs">
+                    <input id="signup_submit" name="signup_submit" type="submit" value="__Sign Up__"/>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

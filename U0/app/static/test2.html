@@ -1,0 +1,21 @@
+<html>
+<head>
+    <script>
+        var a = 3;
+        
+        function mostrarVariable(valor) {
+            alert(valor);   // Aquí mostramos el valor que recibe como parámetro
+            alert(a);       // Aquí, el valor de la variable global
+        }
+    </script>
+</head>
+<body>
+    Ejemplo sencillo de uso de <i>JavaScript</i>
+    <input type="button" value="Pulsar..." onclick="mostrarVariable(a)" />
+    
+    <script>
+        alert(a);
+        a = 5;
+    </script>
+</body>
+</html>

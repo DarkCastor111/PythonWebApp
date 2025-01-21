@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+   
+    <script>
+        var a = 3;
+        var b = 5;
+        var resultado = null;
+				
+		function sumar() {
+		resultado = a + b;
+		alert(resultado);
+		}
+		
+		function verResultado() {
+			
+			if (resultado == null ) { alert("Suma por favor !!"); }
+			else { alert(resultado);}
+		}
+    </script>
+</head>
+<body>
+    Pulsa para ver el primer término
+        <input type="button" value="T1" onclick="alert(a)"/>
+    <br>
+    Pulsa para ver el segundo término
+        <input type="button" value="T2" onclick="alert(b)"/>
+    <br>
+    Pulsa para sumar
+        <input type="button" value="Sumar" onclick="sumar()"/>
+    <br>
+    Pulsa para ver el resultado de la suma
+        <input type="button" value="T1+T2" onclick="verResultado()">
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <meta charset="utf-8"/>
+	   <script>
+	   function diferencia() {
+	   
+	   contOuter = document.getElementById('contenedor').outerHTML
+	   contInner = document.getElementById('contenedor').innerHTML
+	   
+	   document.getElementById('inner').value = contInner
+	   document.getElementById('outer').value = contOuter
+	   }
+	   
+	   function salida() {
+	   
+	   contInner = document.getElementById('contenedor').innerHTML
+	   document.getElementById('contenedor').innerHTML = ""
+	   
+	   document.getElementById('salida').innerHTML = "<b><u>Esto es una modificación dinámica </u></b><br> " + contInner
+	   }
+	   </script>
+    </head>
+    <body>
+        <div id="contenedor">
+            Este es un ejemplo en el que ilustrar <b>la diferencia</b> entre las propiedades <i>outerHTML</i> e <i>innerHTML</i>
+        </div>
+        <div id="salida">
+            <textarea id="outer" style="width:40%"></textarea>
+            <textarea id="inner" style="width:40%"></textarea>
+        </div>
+        <input type="button" value="Ver diferencias" onclick="salida()"/>
+    </body>
+</html>

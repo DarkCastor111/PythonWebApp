@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ejemplo AJAX</title>
+        <script>
+            function enviar() {
+				xmlhttp = new XMLHttpRequest();
+				xmlhttp.onreadystatechange = function() {
+					document.getElementById('contenedor').innerHTML += "<BR>" + xmlhttp.readyState + " - " + xmlhttp.status;
+					
+					if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+						document.getElementById('contenedor').outerHTML = xmlhttp.responseText;
+					}
+				}
+				xmlhttp.open("GET", "./info_externa.html", true);
+				xmlhttp.send()
+				
+				
+				
+			}
+				
+        </script>
+    </head>
+    <body>
+        <!-- El elemento en el que se va a cargar la información dinámicamente,
+             en el documento original se carga vacío. -->
+        <div id="contenedor">
+		0 - 0 
+        </div>
+        <input type="button" onclick="enviar()" value="Hacer petición AJAX" />
+    </body>
+</html>

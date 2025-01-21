@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+	<title>Initial title</title>
+   
+    <script>
+		function cambiarTitulo() {
+			new_title = document.getElementById("nvTit").value;
+			
+			document.title = new_title;
+		}
+    </script>
+</head>
+<body>
+	<br>
+	Nuevo titulo
+		<input type="text" id="nvTit" name="nvTit" />
+		<input type="button" value="Cambiar Titulo" onclick="cambiarTitulo()" />
+</body>
+</html>
